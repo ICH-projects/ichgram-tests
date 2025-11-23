@@ -5,5 +5,6 @@ declare namespace Cypress {
       selector: string,
       ...args: any[]
     ): Chainable<JQuery<HTMLElement>>;
+    login(email: string, password): Chainable<JQuery<HTMLElement>>;
   }
 }

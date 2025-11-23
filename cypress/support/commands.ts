@@ -36,11 +36,16 @@
 //   }
 // }
 
-
 Cypress.Commands.add("getBySel", (selector: string, ...args) => {
   return cy.get(`[data-testid=${selector}]`, ...args);
 });
 
 Cypress.Commands.add("getBySelLike", (selector, ...args) => {
   return cy.get(`[data-testid*=${selector}]`, ...args);
+});
+
+Cypress.Commands.add("login", (email: string, password: string) => {
+  cy.getBySel("email").type(email);
+  cy.getBySel("password").type(password);
+  cy.getBySel("submit").click();
 });
